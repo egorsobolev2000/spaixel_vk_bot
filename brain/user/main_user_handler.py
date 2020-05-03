@@ -1,6 +1,6 @@
 import random
 
-from body.body import get_empty_keyboard
+from body.base import get_empty_keyboard
 from body.user.modules.service.user_m_s_keyboard import service_keyboard
 from debug.debug import log_error
 from data.collect_data.vk_user import VkUser as User
