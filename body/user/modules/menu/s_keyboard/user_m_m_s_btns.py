@@ -1,0 +1,6 @@
+KBB__USER_M_M__S_K__OPEN_WEBSAIT: str = 'Перейти на сайт'
+KBB__USER_M_M__S_K__REQUEST: str = 'Оставить заявку'
+KBB__USER_M_M__S_K__FILL_BRIF: str = 'Брифы'
+KBB__USER_M_M__S_K__SERVICE: str = 'Услуги'
+KBB__USER_M_M__S_K__REVIEWS: str = 'Отзывы'
+KBB__USER_M_M__S_K__FAQ: str = 'FAQ'
