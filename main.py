@@ -5,7 +5,7 @@ from config import TOKEN
 
 from vk_api.longpoll import VkLongPoll, VkEventType
 
-from brain.main_handler import main_handler
+from brain.user.main_user_handler import main_user_handler
 from debug.color import ColorsPrint
 
 vk_session = vk_api.VkApi(token=TOKEN)
@@ -21,7 +21,7 @@ if __name__ == "__main__":
             print(f'\nСоединение с Дред — ', ColorsPrint('OK', 'suc').do_colored())
             for event in longpoll.listen():
                 if event.type == VkEventType.MESSAGE_NEW and event.to_me:
-                    main_handler(vk, event)
+                    main_user_handler(vk, event)
         except Exception as e:
             print(ColorsPrint('Не удалось запустить бота', 'err').do_colored(), e)
         except KeyboardInterrupt:
