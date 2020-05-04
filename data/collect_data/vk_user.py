@@ -11,8 +11,7 @@ class VkUser:
         user = self.vk.users.get(user_ids=event.user_id,
                                  fields='verified, sex, bdate, city, country,'
                                         'domain, contacts, site,'
-                                        'followers_count, followers_count, counters,'
-                                        'relation, connections')[0]
+                                        'counters, relation, connections')[0]
 
         if field:
             need_field: object = user[field]
