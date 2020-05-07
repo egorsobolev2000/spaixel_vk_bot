@@ -1,0 +1,7 @@
+KBB__ADMIN_B__USER_LIST: str = 'Список пользователей'
+KBB__ADMIN_B__ADMIN_LIST: str = 'Админы'
+KBB__ADMIN_B__ADD_ADMIN: str = '✅ Админа'
+KBB__ADMIN_B__DEL_ADMIN: str = '⛔ Админа'
+KBB__ADMIN_B__MAILING_USER_LIST: str = 'Менеджеры'
+KBB__ADMIN_B__ADD_MAILING_USER: str = '✅ Менеджера'
+KBB__ADMIN_B__DEL_MAILING_USER: str = '⛔ Менеджера'
