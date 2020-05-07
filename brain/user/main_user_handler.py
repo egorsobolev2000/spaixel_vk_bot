@@ -15,10 +15,12 @@ from body.user.modules.menu.s_keyboard.user_m_m_s_btns import *
 from data.modules_data.service.service_data import SERVICE_DATA
 from data.modules_data.faq.faq_data import FAQ_DATA
 
-from body.body_base import get_empty_keyboard, send_data_message
+from body.body_base import get_empty_keyboard, send_data_message, send_transitional_msg
 from body.user.modules.faq.user_m_f_keyboard import faq_keyboard
 from body.user.modules.service.user_m_s_keyboard import service_keyboard
 from body.user.modules.menu.s_keyboard.user_m_m_s_keyboard import standard_keyboard
+
+from body.admin.keyboards.base.admin_k_base_keyboard import admin_base_keyboard
 
 
 @log_error
@@ -51,7 +53,6 @@ def main_user_handler(vk, event):
             message='Нажимай на интересующую тебя услугу и я расскажу тебе о ней',
             random_id=random_id(),
             keyboard=service_keyboard()
-
         )
 
     # Если запрашивается любая из услуг
@@ -84,19 +85,7 @@ def main_user_handler(vk, event):
 
     # Если человек нажимает на кнопку -> ГЛАВНОЕ МЕНЮ
     elif event.text == KBB__BASE__MAIN_MENU:
-        vk.messages.send(
-            user_id=event.user_id,
-            message='Возврат в главное меню',
-            random_id=random_id(),
-            keyboard=get_empty_keyboard()
-        )
-        vk.messages.send(
-            user_id=event.user_id,
-            message='Что будем делать?',
-            random_id=random_id(),
-            keyboard=standard_keyboard()
-
-        )
+        send_transitional_msg(vk, event, standard_keyboard)
 
     # Если человек нажимает на кнопку -> ОТЗЫВЫ
     elif event.text == KBB__USER_M_M__S_K__REVIEWS:
@@ -141,9 +130,8 @@ def main_user_handler(vk, event):
                         user_id=event.user_id,
                         message='Что будем делать?',
                         random_id=random_id(),
-                        keyboard=get_empty_keyboard()
+                        keyboard=admin_base_keyboard()
                     )
-
 
                 except Exception as e:
                     vk.messages.send(
@@ -151,6 +139,7 @@ def main_user_handler(vk, event):
                         message=e,
                         random_id=random_id()
                     )
+
             # Вход в режим рассылки
             elif msg[1] == 'mailing':
                 vk.messages.send(
